@@ -1,0 +1,28 @@
+server:
+  port: 4014
+  ssl:
+    enabled: true
+    key-alias: RS
+    key-store-type: JKS
+    key-store: classpath:springboot-ssl.jks
+    key-store-password: 123456
+    key-store-provider: SUN
+    #Enabling two way SSL
+    client-auth: want
+spring:
+  application:
+    name: ribbon-as-loadbalencer-service
+  # Pretty-print JSON responses
+  jackson:
+    serialization:
+      INDENT_OUTPUT: true
+#  Load balancers in Ribbon normally get their server lists from a Netflix Eureka service registry
+# ServerListRefreshInterval is the interval, in milliseconds, between refreshes of Ribbon’s service list.
+ribbon-as-loadbalencer-service:
+  ribbon:
+    eureka:
+      enabled: false
+    listOfServers: server-host:9090, server-host:9091, server-host:9092
+    ServerListRefreshInterval: 10000
+security:
+  require-ssl: true

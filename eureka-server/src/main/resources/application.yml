@@ -1,0 +1,14 @@
+#server:
+#  Default Eureka server port
+#  port: 8761
+server:
+  port: 9090
+
+eureka:
+  client:
+    enabled: true
+    register-with-eureka: false
+    fetch-registry: false
+    service-url:
+#      Replica node URL
+      defaultZone:  http://localhost:8762/eureka/

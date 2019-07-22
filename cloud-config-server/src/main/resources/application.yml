@@ -1,0 +1,10 @@
+#server:
+#  port: 4014
+logging:
+  level:
+    org.springframework.cloud: 'DEBUG'
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'

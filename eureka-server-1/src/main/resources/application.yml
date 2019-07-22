@@ -1,0 +1,10 @@
+server:
+  port: 8762
+eureka:
+  client:
+    enabled: true
+    register-with-eureka: false
+    fetch-registry: false
+    service-url:
+#      Replica node URL
+      defaultZone:  http://localhost:9090/eureka/

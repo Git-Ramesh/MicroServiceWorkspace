@@ -1,0 +1,17 @@
+server:
+  port: 4015
+spring:
+  jackson:
+    serialization:
+      indent-output: true
+logging:
+  level:
+    com.rs.app.: debug
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+error:
+  whitelabel:
+    enabled: false

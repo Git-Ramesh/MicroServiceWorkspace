@@ -1,0 +1,39 @@
+server:
+  port: 8083
+spring:
+  application:
+    name: zuul-service
+
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone:  http://localhost:9090/eureka/
+
+zuul:
+  prefix: /api
+  ignoredServices: "*"
+  routes:
+    movie-info-service:
+      path: /info/**
+      serviceId: MOVIE-INFO-SERVICE
+    movie-catalog-service:
+      path: /catalog/**
+      serviceId: MOVIE-CATALOG-SERVICE
+
+#hystrix:
+#  command:
+#    default:
+#      execution:
+#        isolation:
+#          thread:
+#            timeoutInMilliseconds: 60000
+#MOVIE-INFO-SERVICE:
+#  ribbon:
+#    NIWSServerListClassName: com.netflix.loadbalancer.ConfigurationBasedServerList
+#    ListOfServers: http://example1.com,http://example2.com
+#    ConnectTimeout: 1000
+#    ReadTimeout: 3000
+#    MaxTotalHttpConnections: 500
+#    MaxConnectionsPerHost: 100
